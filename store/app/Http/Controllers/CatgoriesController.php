@@ -5,8 +5,8 @@ use App\Models\Catgories;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Illuminate\Http\Request\StoreCatgoriesRequest;
-use Illuminate\Http\Request\UpdateCatgoriesRequest;
+use App\Http\Requests\StoreCatgoriesRequest;
+use App\Http\Requests\UpdateCatgoriesRequest;
 
 
 use Illuminate\Http\Request;
@@ -28,7 +28,7 @@ class CatgoriesController extends Controller
     public function store(StoreCatgoriesRequest $request): RedirectResponse
     {
         Catgories::create($request->validated());
-        return redirect()->route('Categories.index')
+        return redirect()->route('categories.index')
             ->with('success', 'Category created successfully.');
     }
 
@@ -43,13 +43,13 @@ class CatgoriesController extends Controller
     public function update(UpdateCatgoriesRequest $request, Catgories $category): RedirectResponse
     {
         $category->update($request->validated());
-        return redirect()->route('Categories.index')
+        return redirect()->route('categories.index')
             ->with('success', 'Category updated successfully.');
     }
     public function destroy(Catgories $category): RedirectResponse
     {
         $category->delete();
-        return redirect()->route('Categories.index')
+        return redirect()->route('categories.index')
             ->with('success', 'Category deleted successfully.');
     }
 
