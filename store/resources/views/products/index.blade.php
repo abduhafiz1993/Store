@@ -14,6 +14,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Stock</th>
                     <th>Actions</th>
@@ -24,6 +25,7 @@
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
+                        <td>{{ $product->category ? $product->category->name : 'Uncategorized' }}</td>
                         <td>${{ number_format($product->price, 2) }}</td>
                         <td>{{ $product->stock_quantity }}</td>
                         <td>

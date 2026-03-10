@@ -20,6 +20,9 @@
                         <dt class="col-sm-4">Name</dt>
                         <dd class="col-sm-8">{{ $product->name }}</dd>
 
+                        <dt class="col-sm-4">Category</dt>
+                        <dd class="col-sm-8">{{ $product->category ? $product->category->name : 'Uncategorized' }}</dd>
+
                         <dt class="col-sm-4">Description</dt>
                         <dd class="col-sm-8">{{ $product->description ?? '—' }}</dd>
 

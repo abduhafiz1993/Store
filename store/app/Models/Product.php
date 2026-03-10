@@ -12,6 +12,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
+        'catgories_id',
         'price',
         'stock_quantity',
         'sku',
@@ -20,4 +21,9 @@ class Product extends Model
     protected $casts = [
         'price' => 'decimal:2',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Catgories::class, 'catgories_id');
+    }
 }
